@@ -16,8 +16,8 @@
     <tags>WPF XAML</tags>
   </metadata>
   <files>
-    <file src="WpfLightToolkit\bin\AppVeyor\WpfLightToolkit.dll" target="lib\net45" />
-    <file src="WpfLightToolkit\bin\AppVeyor\WpfLightToolkit.pdb" target="lib\net45" />
+    <file src="WpfLightToolkit\bin\Release\WpfLightToolkit.dll" target="lib\net45" />
+    <file src="WpfLightToolkit\bin\Release\WpfLightToolkit.pdb" target="lib\net45" />
     <file src="WpfLightToolkit\**\*.cs" target="src\net45" />
   </files>    
 </package>
