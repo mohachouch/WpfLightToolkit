@@ -5,7 +5,7 @@
       - master
 
   os: Visual Studio 2017
-  configuration: AppVeyor
+  configuration: Release
   assembly_info:
     patch: true
     file: '**\AssemblyInfo.*'
