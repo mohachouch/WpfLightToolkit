@@ -8,7 +8,6 @@
     <owners>Mohamed CHOUCHANE</owners>
     <licenseUrl>https://github.com/mohachouch/WpfLightToolkit/blob/master/LICENSE</licenseUrl>
     <projectUrl>https://github.com/mohachouch/WpfLightToolkit</projectUrl>    
-    <iconUrl></iconUrl>
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
     <description>WPF Light UI Toolkit</description>
     <releaseNotes></releaseNotes>
