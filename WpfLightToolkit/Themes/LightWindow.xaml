@@ -29,7 +29,8 @@
                                 <RowDefinition Height="Auto" />
                             </Grid.RowDefinitions>
 
-                            <controls:LightTransitioningContentControl x:Name="PART_ModalContentControl"  Grid.Row="1" 
+                            <controls:LightTransitioningContentControl
+                                    x:Name="PART_ModalContentControl"  Grid.Row="1" Background="White"
                                                                        Grid.RowSpan="3" Panel.ZIndex="2" Transition="Up"
                                       ContentLoader="{TemplateBinding ContentLoader}" Source="{TemplateBinding CurrentModalPage}"
                                                                        
@@ -105,6 +106,9 @@
                         </Trigger>
                         <Trigger Property="CurrentContentDialog" Value="{x:Null}">
                             <Setter TargetName="PART_Popup" Property="Visibility" Value="Collapsed" />
+                        </Trigger>
+                        <Trigger Property="CurrentModalPage" Value="{x:Null}">
+                            <Setter TargetName="PART_ModalContentControl" Property="Visibility" Value="Collapsed" />
                         </Trigger>
                     </ControlTemplate.Triggers>
                 </ControlTemplate>

@@ -12,5 +12,6 @@
         <Button Content="Carousel Page Demo" Width="600" Height="50" Click="BtnCarouselPageDemo_Clicked" Margin="0,0,0,10" />
         <Button Content="Navigation Page Demo" Width="600" Height="50" Click="BtnNavigationPageDemo_Clicked" Margin="0,0,0,10" />
         <Button Content="MasterDetail Page Demo" Width="600" Height="50" Click="BtnMasterDetailPageDemo_Clicked" Margin="0,0,0,10" />
+        <Button Content="Show Modal" Width="600" Height="50" Click="BtnShowModalDemo_Clicked" Margin="0,0,0,10" />
     </StackPanel>
 </LightContentPage>

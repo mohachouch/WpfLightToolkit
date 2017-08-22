@@ -55,5 +55,22 @@ namespace WpfLightToolkit.Demo
 		{
 			ParentWindow.StartupPage = new MasterDetailPage();
 		}
+
+		private void BtnShowModalDemo_Clicked(object sender, RoutedEventArgs e)
+		{
+			Button button = new Button()
+			{
+				Content = "Pop",
+				Width = 200,
+				Height = 100
+			};
+
+			button.Click += (x, y) => 
+			{
+				Navigation.PopModal();
+			};
+
+			Navigation.PushModal(new UserControl() { Background = Brushes.Transparent, Content = button});
+		}
 	}
 }
