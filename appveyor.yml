@@ -19,7 +19,6 @@
   - ps: nuget pack WpfLightToolkit.nuspec -Version $env:APPVEYOR_BUILD_VERSION
   artifacts:
   - path: '**\WpfLightToolkit.*.nupkg'
-  - path: bin\**\*.*
 
   version: 1.0.0-ci{build}
   nuget:
