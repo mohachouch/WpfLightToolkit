@@ -1,0 +1,28 @@
+﻿<LightMasterDetailPage x:Class="WpfLightToolkit.Demo.Pages.MasterDetailPage.MasterDetailPage"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:WpfLightToolkit.Demo.Pages.MasterDetailPage"
+             mc:Ignorable="d" >
+
+    <LightMasterDetailPage.SecondaryTopBarCommands>
+        <LightAppBarButton Label="Home" Click="Home_Click">
+            <LightAppBarButton.Icon>
+                <LightSymbolIcon Symbol="Home" />
+            </LightAppBarButton.Icon>
+        </LightAppBarButton>
+    </LightMasterDetailPage.SecondaryTopBarCommands>
+
+    <LightMasterDetailPage.MasterPage>
+        <LightContentPage Background="{DynamicResource AccentColor}">
+            <TextBlock Text="Master" Foreground="White" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="30" />
+        </LightContentPage>
+    </LightMasterDetailPage.MasterPage>
+
+    <LightMasterDetailPage.DetailPage>
+        <LightContentPage Title="Detail Title">
+            <TextBlock Text="Detail" Foreground="Black" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="30" />
+        </LightContentPage>
+    </LightMasterDetailPage.DetailPage>
+</LightMasterDetailPage>

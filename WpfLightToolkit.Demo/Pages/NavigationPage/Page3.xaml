@@ -1,0 +1,15 @@
+﻿<LightContentPage x:Class="WpfLightToolkit.Demo.Pages.NavigationPage.Page3"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             mc:Ignorable="d" 
+             Title="Page 2"
+             d:DesignHeight="300" d:DesignWidth="300">
+    <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center">
+        <TextBlock Text="Page 3" Foreground="Black" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="30" Margin="0,0,0,30"/>
+       <!-- <Button Content="Remove page 2" Width="200" Height="30" Click="RemovePage2_Click" Margin="0,0,0,30" />-->
+        <Button Content="Pop" Width="200" Height="30" Click="Pop_Click"  Margin="0,0,0,30"/>
+        <Button Content="Pop To Root" Width="200" Height="30" Click="PopToRoot_Click"  Margin="0,0,0,30"/>
+    </StackPanel>
+</LightContentPage>

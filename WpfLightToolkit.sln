@@ -1,13 +1,28 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
-VisualStudioVersion = 15.0.26730.3
+VisualStudioVersion = 15.0.26430.14
 MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WpfLightToolkit", "WpfLightToolkit\WpfLightToolkit.csproj", "{9AB20093-D50A-4587-8B2B-66F1AEA8B101}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WpfLightToolkit.Demo", "WpfLightToolkit.Demo\WpfLightToolkit.Demo.csproj", "{D64C37F1-C2FC-43FC-ACAB-4A6BABD17B51}"
+EndProject
 Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{9AB20093-D50A-4587-8B2B-66F1AEA8B101}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9AB20093-D50A-4587-8B2B-66F1AEA8B101}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9AB20093-D50A-4587-8B2B-66F1AEA8B101}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9AB20093-D50A-4587-8B2B-66F1AEA8B101}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D64C37F1-C2FC-43FC-ACAB-4A6BABD17B51}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D64C37F1-C2FC-43FC-ACAB-4A6BABD17B51}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D64C37F1-C2FC-43FC-ACAB-4A6BABD17B51}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D64C37F1-C2FC-43FC-ACAB-4A6BABD17B51}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
-	EndGlobalSection
-	GlobalSection(ExtensibilityGlobals) = postSolution
-		SolutionGuid = {7CE5A3CE-9F86-4832-9227-552A12812D9A}
 	EndGlobalSection
 EndGlobal

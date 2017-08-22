@@ -1,0 +1,51 @@
+﻿<LightTabbedPage x:Class="WpfLightToolkit.Demo.Pages.TabbedPage.TabbedPage"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                 xmlns:sys="clr-namespace:System;assembly=mscorlib"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             mc:Ignorable="d" Title="Tabbed Page - Title"
+             d:DesignHeight="300" d:DesignWidth="300">
+
+    <LightTabbedPage.PrimaryTopBarCommands>
+        <LightAppBarButton Label="Add Page" Click="AddPageToolbarItem_Click">
+            <LightAppBarButton.Icon>
+                <LightSymbolIcon Symbol="Page" />
+            </LightAppBarButton.Icon>
+        </LightAppBarButton>
+        <LightAppBarButton Label="Remove Page" Click="RemovePageToolbarItem_Click">
+            <LightAppBarButton.Icon>
+                <LightSymbolIcon Symbol="RemoveFrom" />
+            </LightAppBarButton.Icon>
+        </LightAppBarButton>
+        <LightAppBarButton Label="Bar Color" Click="BarColorToolbarItem_Click">
+            <LightAppBarButton.Icon>
+                <LightSymbolIcon Symbol="Color" />
+            </LightAppBarButton.Icon>
+        </LightAppBarButton>
+        <LightAppBarButton Label="Bar Text Color " Click="BarTextColorToolbarItem_Click">
+            <LightAppBarButton.Icon>
+                <LightSymbolIcon Symbol="FontColor" />
+            </LightAppBarButton.Icon>
+        </LightAppBarButton>
+    </LightTabbedPage.PrimaryTopBarCommands>
+    
+    <LightTabbedPage.SecondaryTopBarCommands>
+        <LightAppBarButton Label="Home" Click="Home_Click">
+            <LightAppBarButton.Icon>
+                <LightSymbolIcon Symbol="Home" />
+            </LightAppBarButton.Icon>
+        </LightAppBarButton>
+    </LightTabbedPage.SecondaryTopBarCommands>
+
+    
+    <!-- Page 1 -->
+    <LightContentPage Title="Page 1" >
+        <Grid Height="50" Width="50" Background="Blue"/>
+    </LightContentPage>
+   
+    <!-- Page 2 -->
+    <LightContentPage Title="Page 2" >
+        <Grid Height="50" Width="50" Background="Red"/>
+    </LightContentPage>
+</LightTabbedPage>

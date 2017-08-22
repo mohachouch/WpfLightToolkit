@@ -1,0 +1,33 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+
+    <ResourceDictionary.MergedDictionaries>
+
+        <!-- Pages -->
+        <ResourceDictionary Source="/WpfLightToolkit;component/Themes/LightContentPage.xaml" />
+        <ResourceDictionary Source="/WpfLightToolkit;component/Themes/LightTabbedPage.xaml" />
+        <ResourceDictionary Source="/WpfLightToolkit;component/Themes/LightNavigationPage.xaml" />
+        <ResourceDictionary Source="/WpfLightToolkit;component/Themes/LightCarouselPage.xaml" />
+        <ResourceDictionary Source="/WpfLightToolkit;component/Themes/LightMasterDetailPage.xaml" /> 
+
+        <!-- Windows -->
+        <ResourceDictionary Source="/WpfLightToolkit;component/Themes/LightWindow.xaml" />
+        <ResourceDictionary Source="/WpfLightToolkit;component/Themes/LightContentDialog.xaml" />
+
+        <!-- Content Control -->
+        <ResourceDictionary Source="/WpfLightToolkit;component/Themes/LightTransitioningContentControl.xaml" />
+        <ResourceDictionary Source="/WpfLightToolkit;component/Themes/LightContentControl.xaml" />
+        <ResourceDictionary Source="/WpfLightToolkit;component/Themes/LightAppBar.xaml" />
+
+        <!-- WindowButtonCommands -->
+        <ResourceDictionary Source="/WpfLightToolkit;component/Themes/LightWindowButtonCommands.xaml" />
+
+
+        <ResourceDictionary Source="/WpfLightToolkit;component/Themes/LightSymbolIcon.xaml" />
+        <ResourceDictionary Source="/WpfLightToolkit;component/Themes/LightBitmapIcon.xaml" />
+        <ResourceDictionary Source="/WpfLightToolkit;component/Themes/LightPathIcon.xaml" />
+        <ResourceDictionary Source="/WpfLightToolkit;component/Themes/LightAppBarButton.xaml" />
+
+    </ResourceDictionary.MergedDictionaries>
+
+</ResourceDictionary>
