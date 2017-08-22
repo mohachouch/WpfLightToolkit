@@ -1,0 +1,22 @@
+<?xml version="1.0"?>
+<package>
+  <metadata>
+    <id>WpfLightToolkit</id>
+    <version>1.0.0</version>
+    <title>WPF Light UI Toolkit</title>
+    <authors>Mohamed CHOUCHANE</authors>
+    <owners>Mohamed CHOUCHANE</owners>
+    <licenseUrl>https://github.com/mohachouch/WpfLightToolkit/blob/master/LICENSE</licenseUrl>
+    <projectUrl>https://github.com/mohachouch/WpfLightToolkit</projectUrl>    
+    <requireLicenseAcceptance>false</requireLicenseAcceptance>
+    <description>WPF Light UI Toolkit</description>
+    <releaseNotes></releaseNotes>
+    <copyright>Copyright 2017 Mohamed CHOUCHANE</copyright>
+    <tags>WPF XAML</tags>
+  </metadata>
+  <files>
+    <file src="WpfLightToolkit\bin\Release\WpfLightToolkit.dll" target="lib\net45" />
+    <file src="WpfLightToolkit\bin\Release\WpfLightToolkit.pdb" target="lib\net45" />
+    <file src="WpfLightToolkit\**\*.cs" target="src\net45" />
+  </files>    
+</package>
