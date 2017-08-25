@@ -177,5 +177,15 @@ namespace WpfLightToolkit.Controls
 		{
 			return this.HasNavigationBar;
 		}
+
+		public virtual Brush GetTitleBarBackgroundColor()
+		{
+			return this.TitleBarBackgroundColor;
+		}
+
+		public virtual Brush GetTitleBarTextColor()
+		{
+			return this.TitleBarTextColor;
+		}
 	}  
 }

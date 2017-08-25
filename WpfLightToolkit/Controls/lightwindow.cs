@@ -33,19 +33,19 @@ namespace WpfLightToolkit.Controls
 		public static readonly DependencyProperty CurrentNavigationPageProperty = DependencyProperty.Register("CurrentNavigationPage", typeof(LightNavigationPage), typeof(LightWindow));
 		public static readonly DependencyProperty CurrentMasterDetailPageProperty = DependencyProperty.Register("CurrentMasterDetailPage", typeof(LightMasterDetailPage), typeof(LightWindow));
 		public static readonly DependencyProperty CurrentContentDialogProperty = DependencyProperty.Register("CurrentContentDialog", typeof(LightContentDialog), typeof(LightWindow));
-		public static readonly DependencyProperty NavigationBarBackgroundColorProperty = DependencyProperty.Register("NavigationBarBackgroundColor", typeof(Brush), typeof(LightWindow));
-		public static readonly DependencyProperty NavigationBarTextColorProperty = DependencyProperty.Register("NavigationBarTextColor", typeof(Brush), typeof(LightWindow));
+		public static readonly DependencyProperty TitleBarBackgroundColorProperty = DependencyProperty.Register("TitleBarBackgroundColor", typeof(Brush), typeof(LightWindow));
+		public static readonly DependencyProperty TitleBarTextColorProperty = DependencyProperty.Register("TitleBarTextColor", typeof(Brush), typeof(LightWindow));
 
-		public Brush NavigationBarBackgroundColor
+		public Brush TitleBarBackgroundColor
 		{
-			get { return (Brush)GetValue(NavigationBarBackgroundColorProperty); }
-			private set { SetValue(NavigationBarBackgroundColorProperty, value); }
+			get { return (Brush)GetValue(TitleBarBackgroundColorProperty); }
+			private set { SetValue(TitleBarBackgroundColorProperty, value); }
 		}
 
-		public Brush NavigationBarTextColor
+		public Brush TitleBarTextColor
 		{
-			get { return (Brush)GetValue(NavigationBarTextColorProperty); }
-			private set { SetValue(NavigationBarTextColorProperty, value); }
+			get { return (Brush)GetValue(TitleBarTextColorProperty); }
+			private set { SetValue(TitleBarTextColorProperty, value); }
 		}
 
 		public LightContentDialog CurrentContentDialog
@@ -177,13 +177,13 @@ namespace WpfLightToolkit.Controls
 			var page = childrens.FirstOrDefault();
 			if(page != null)
 			{
-				NavigationBarBackgroundColor = page.TitleBarBackgroundColor;
-				NavigationBarTextColor = page.TitleBarTextColor;
+				TitleBarBackgroundColor = page.GetTitleBarBackgroundColor();
+				TitleBarTextColor = page.GetTitleBarTextColor();
 			}
 			else
 			{
-				ClearValue(NavigationBarBackgroundColorProperty);
-				ClearValue(NavigationBarTextColorProperty);
+				ClearValue(TitleBarBackgroundColorProperty);
+				ClearValue(TitleBarTextColorProperty);
 			}
 
 			hamburgerButton.Visibility = CurrentMasterDetailPage != null ? Visibility.Visible : Visibility.Collapsed;

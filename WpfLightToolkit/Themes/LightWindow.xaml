@@ -45,10 +45,10 @@
                             </Grid>
 
 
-                            <controls:LightAppBar x:Name="PART_TopAppBar" Grid.Row="1" Background="{TemplateBinding NavigationBarBackgroundColor}"
+                            <controls:LightAppBar x:Name="PART_TopAppBar" Grid.Row="1" Background="{TemplateBinding TitleBarBackgroundColor}"
                                        Visibility="{Binding HasNavigationBar, FallbackValue=Collapsed, TargetNullValue=Collapsed, Converter={StaticResource BoolToVis},
                                        RelativeSource={RelativeSource AncestorType={x:Type controls:LightWindow}}}"
-                                       Foreground="{TemplateBinding NavigationBarTextColor}">
+                                       Foreground="{TemplateBinding TitleBarTextColor}">
                                 <Grid>
                                     <StackPanel Grid.Column="0" Orientation="Horizontal" Height="65"  Focusable="False" HorizontalAlignment="Left" VerticalAlignment="Center" UseLayoutRounding="True">
                                         <Button x:Name="PART_Hamburger" Focusable="False" Style="{StaticResource LightOtherWindowButtonStyle}" >

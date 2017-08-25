@@ -7,12 +7,13 @@ using System.Windows;
 using WpfLightToolkit.Interfaces;
 using WpfLightToolkit.Extensions;
 using WpfLightToolkit.Loader;
+using System.Windows.Media;
 
 namespace WpfLightToolkit.Controls
 {
 	public class LightMasterDetailPage : LightPage
 	{
-		LightContentControl lightContentControl;
+		LightContentControl lightDetailContentControl;
 
 		public static readonly DependencyProperty MasterPageProperty = DependencyProperty.Register("MasterPage", typeof(object), typeof(LightMasterDetailPage));
 		public static readonly DependencyProperty DetailPageProperty = DependencyProperty.Register("DetailPage", typeof(object), typeof(LightMasterDetailPage));
@@ -51,16 +52,34 @@ namespace WpfLightToolkit.Controls
 		public override void OnApplyTemplate()
 		{
 			base.OnApplyTemplate();
-			lightContentControl = Template.FindName("PART_Detail_Content", this) as LightContentControl;
+			lightDetailContentControl = Template.FindName("PART_Detail_Content", this) as LightContentControl;
 		}
 
 		public override string GetTitle()
 		{
-			if (lightContentControl != null && lightContentControl.Content is LightPage page)
+			if (lightDetailContentControl != null && lightDetailContentControl.Content is LightPage page)
 			{
 				return page.GetTitle();
 			}
-			return "";
+			return this.Title;
+		}
+
+		public override Brush GetTitleBarBackgroundColor()
+		{
+			if (lightDetailContentControl != null && lightDetailContentControl.Content is LightPage page)
+			{
+				return page.GetTitleBarBackgroundColor();
+			}
+			return this.TitleBarBackgroundColor;
+		}
+
+		public override Brush GetTitleBarTextColor()
+		{
+			if (lightDetailContentControl != null && lightDetailContentControl.Content is LightPage page)
+			{
+				return page.GetTitleBarTextColor();
+			}
+			return this.TitleBarTextColor;
 		}
 	}
 }
