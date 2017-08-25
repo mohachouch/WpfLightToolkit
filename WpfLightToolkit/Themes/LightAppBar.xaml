@@ -18,7 +18,7 @@
         <Setter Property="Template">
             <Setter.Value>
                 <ControlTemplate TargetType="controls:LightAppBar">
-                    <Grid  Height="{TemplateBinding Height}" Background="{TemplateBinding Background}">
+                    <Grid  VerticalAlignment="Stretch" Background="{TemplateBinding Background}">
                         <Grid.ColumnDefinitions>
                             <ColumnDefinition Width="Auto" />
                             <ColumnDefinition />
@@ -27,8 +27,8 @@
 
                         <ContentPresenter Grid.ColumnSpan="3"/>
 
-                        <ItemsControl Name="PART_Command" Grid.Column="1" HorizontalAlignment="Right" VerticalAlignment="Center" 
-                                      Height="{TemplateBinding Height}"  >
+                        <ItemsControl Name="PART_Command" Grid.Column="1" HorizontalAlignment="Right" VerticalAlignment="Stretch" 
+                                      HorizontalContentAlignment="Center" VerticalContentAlignment="Center" >
                             <ItemsControl.ItemsPanel>
                                 <ItemsPanelTemplate>
                                     <StackPanel Orientation="Horizontal"  Focusable="False" UseLayoutRounding="True"/>
@@ -49,22 +49,19 @@
                         <ToggleButton Name="PART_More" Grid.Column="2" >
                             <ToggleButton.Style>
                                 <Style TargetType="{x:Type ToggleButton}" BasedOn="{StaticResource AppBarToggleButtonStyle}">
-
+                                    <Setter Property="Content">
+                                        <Setter.Value>
+                                            <controls:LightSymbolIcon Symbol="More" FontSize="25" />
+                                        </Setter.Value>
+                                    </Setter>
                                     <Style.Triggers>
-                                        <Trigger Property="IsChecked" Value="True" >
-                                            <Setter  Property="Content">
-                                                <Setter.Value>
-                                                    <TextBlock FontFamily="Segoe MDL2 Assets"  FontSize="25" Text="&#xE711;" Foreground="White" VerticalAlignment="Center" />
-                                                </Setter.Value>
-                                            </Setter>
-                                        </Trigger>
-                                        <Trigger Property="IsChecked" Value="False">
+                                        <Trigger Property="IsChecked" Value="True"  >
                                             <Setter Property="Content">
                                                 <Setter.Value>
-                                                    <TextBlock FontFamily="Segoe MDL2 Assets"  FontSize="25" Text="&#xE712;" Foreground="White" VerticalAlignment="Center" />
+                                                    <controls:LightSymbolIcon Symbol="Cancel" FontSize="25" />
                                                 </Setter.Value>
                                             </Setter>
-                                        </Trigger>
+                                        </Trigger> 
                                         <DataTrigger Binding="{Binding SecondaryCommands.Count, RelativeSource={RelativeSource AncestorType={x:Type controls:LightAppBar}}}" Value="0">
                                             <Setter Property="Visibility" Value="Collapsed" />
                                         </DataTrigger>

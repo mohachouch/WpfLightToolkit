@@ -20,7 +20,7 @@
             <Setter.Value>
                 <ControlTemplate TargetType="{x:Type controls:LightWindow}">
 
-                    <Border x:Name="BorderWindow" Background="{TemplateBinding Background}" BorderBrush="{DynamicResource AccentColor}" BorderThickness="1" >
+                    <Border x:Name="BorderWindow" Background="{TemplateBinding Background}" BorderBrush="{DynamicResource CommandBarBackgroundColor}" BorderThickness="1" >
                         <Grid>
                             <Grid.RowDefinitions>
                                 <RowDefinition Height="Auto" />
@@ -29,37 +29,30 @@
                                 <RowDefinition Height="Auto" />
                             </Grid.RowDefinitions>
 
-                            <controls:LightTransitioningContentControl
-                                    x:Name="PART_ModalContentControl"  Grid.Row="1" Background="White"
-                                                                       Grid.RowSpan="3" Panel.ZIndex="2" Transition="Up"
-                                      ContentLoader="{TemplateBinding ContentLoader}" Source="{TemplateBinding CurrentModalPage}"
-                                                                       
-                                                                       Visibility="Visible" />
-
-                            <Grid x:Name="PART_CommandsBar"  Grid.Row="0" Height="35" VerticalAlignment="Center" Background="{DynamicResource AccentColor}">
+                          
+                            <Grid x:Name="PART_CommandsBar"  Grid.Row="0" Height="35" VerticalAlignment="Center" 
+                                  Background="{DynamicResource CommandBarBackgroundColor}"
+                                  >
                                 <TextBlock Margin="15,0,0,0" Text="{TemplateBinding Title}" HorizontalAlignment="Left" VerticalAlignment="Center" 
-                                           FontSize="14" Opacity="1" />
+                                           FontSize="14" Opacity="1" Foreground="{DynamicResource CommandBarTextColor}"/>
 
                                 <controls:LightWindowButtonCommands x:Name="PART_WindowButtonCommands"
                                                    Focusable="False" HorizontalAlignment="Right"
                                                    VerticalAlignment="Center" Opacity="1" 
                                                    UseLayoutRounding="True"
-                                                   Height="35" />
+                                                   Height="35" 
+                                                   Foreground="{DynamicResource CommandBarTextColor}"/>
                             </Grid>
 
-                            <Grid x:Name="PART_Popup" Grid.Row="1" Grid.RowSpan="3" Background="#99000000" Panel.ZIndex="3">
-                                <ContentPresenter Content="{TemplateBinding CurrentContentDialog}" 
-                                                  VerticalAlignment="Center"/>
-                            </Grid>
 
-                            <controls:LightAppBar x:Name="PART_TopAppBar" Grid.Row="1"
+                            <controls:LightAppBar x:Name="PART_TopAppBar" Grid.Row="1" Background="{TemplateBinding NavigationBarBackgroundColor}"
                                        Visibility="{Binding HasNavigationBar, FallbackValue=Collapsed, TargetNullValue=Collapsed, Converter={StaticResource BoolToVis},
-                                       RelativeSource={RelativeSource AncestorType={x:Type controls:LightWindow}}}">
+                                       RelativeSource={RelativeSource AncestorType={x:Type controls:LightWindow}}}"
+                                       Foreground="{TemplateBinding NavigationBarTextColor}">
                                 <Grid>
                                     <StackPanel Grid.Column="0" Orientation="Horizontal" Height="65"  Focusable="False" HorizontalAlignment="Left" VerticalAlignment="Center" UseLayoutRounding="True">
-                                        <Button  x:Name="PART_Hamburger" Visibility="Visible" WindowChrome.IsHitTestVisibleInChrome="True" Focusable="False" Style="{StaticResource LightOtherWindowButtonStyle}" IsEnabled="True">
-                                            <TextBlock FontFamily="Segoe MDL2 Assets"  FontSize="25" Text="&#xE700;" Foreground="{Binding Path=Foreground, RelativeSource={RelativeSource AncestorType={x:Type Button}}}" VerticalAlignment="Center" />
-                                            
+                                        <Button x:Name="PART_Hamburger" Focusable="False" Style="{StaticResource LightOtherWindowButtonStyle}" >
+                                            <controls:LightSymbolIcon Symbol="GlobalNavigationButton" FontSize="25"  />
                                         </Button>
 
                                         <Button x:Name="PART_Previous"
@@ -70,16 +63,15 @@
                                                 Style="{StaticResource LightOtherWindowButtonStyle}" 
                                                 IsEnabled="True">
                                             <StackPanel Orientation="Horizontal">
-                                                <TextBlock FontFamily="Segoe MDL2 Assets"  FontSize="22" Text="&#xE0E2;" Foreground="{Binding Path=Foreground, RelativeSource={RelativeSource AncestorType={x:Type Button}}}" VerticalAlignment="Center" />
-                                                <TextBlock Margin="5,0,0,0" Text="{Binding BackButtonTitle, 
-                                                    RelativeSource={RelativeSource AncestorType={x:Type controls:LightWindow}}}" FontSize="14" HorizontalAlignment="Center" VerticalAlignment="Center"  />
+                                                <controls:LightSymbolIcon Symbol="ChevronFlipLeftLegacy"  />
+                                                <TextBlock Margin="5,0,0,0" Text="{Binding BackButtonTitle, RelativeSource={RelativeSource AncestorType={x:Type controls:LightWindow}}}" FontSize="14" HorizontalAlignment="Center" VerticalAlignment="Center"  />
                                             </StackPanel>
                                         </Button>       
                                     </StackPanel>
 
                                     <TextBlock Grid.Column="0" Grid.ColumnSpan="2" Text="{Binding CurrentTitle, 
-                                        RelativeSource={RelativeSource AncestorType={x:Type controls:LightWindow}}}" HorizontalAlignment="Center" VerticalAlignment="Center" 
-                                                FontSize="22"  />
+                                        RelativeSource={RelativeSource AncestorType={x:Type controls:LightWindow}}}" 
+                                        HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="22"  />
 
                                 </Grid>
                             </controls:LightAppBar>
@@ -88,6 +80,14 @@
                             <controls:LightContentControl x:Name="PART_ContentControl" Grid.Row="2" 
                                       ContentLoader="{TemplateBinding ContentLoader}" Source="{TemplateBinding StartupPage}" />
 
+                            <controls:LightTransitioningContentControl x:Name="PART_ModalContentControl"  Grid.Row="1" Background="White"
+                                                                       Grid.RowSpan="3" Transition="Up"
+                                      ContentLoader="{TemplateBinding ContentLoader}" Source="{TemplateBinding CurrentModalPage}" />
+
+                            <Grid x:Name="PART_Popup" Grid.Row="1" Grid.RowSpan="3" Background="#99000000" Panel.ZIndex="3">
+                                <ContentPresenter Content="{TemplateBinding CurrentContentDialog}" 
+                                                  VerticalAlignment="Center"/>
+                            </Grid>
 
                             <controls:LightAppBar x:Name="PART_BottomAppBar" Grid.Row="3" />
                         </Grid>
@@ -105,10 +105,10 @@
                             </Setter>
                         </Trigger>
                         <Trigger Property="CurrentContentDialog" Value="{x:Null}">
-                            <Setter TargetName="PART_Popup" Property="Visibility" Value="Collapsed" />
+                            <Setter TargetName="PART_Popup" Property="Visibility" Value="Hidden" />
                         </Trigger>
                         <Trigger Property="CurrentModalPage" Value="{x:Null}">
-                            <Setter TargetName="PART_ModalContentControl" Property="Visibility" Value="Collapsed" />
+                            <Setter TargetName="PART_ModalContentControl" Property="Visibility" Value="Hidden" />
                         </Trigger>
                     </ControlTemplate.Triggers>
                 </ControlTemplate>

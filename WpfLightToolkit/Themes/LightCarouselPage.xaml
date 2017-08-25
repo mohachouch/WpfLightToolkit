@@ -77,6 +77,8 @@
     </Style>
 
     <Style TargetType="{x:Type controls:LightCarouselPage}">
+        <Setter Property="TitleBarBackgroundColor" Value="{DynamicResource DefaultTitleBarBackgroundColor}"/>
+        <Setter Property="TitleBarTextColor" Value="{DynamicResource DefaultTitleBarTextColor}"/>
         <Setter Property="Template">
             <Setter.Value>
                 <ControlTemplate TargetType="{x:Type controls:LightCarouselPage}">

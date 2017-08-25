@@ -9,6 +9,7 @@ using System.Windows.Controls;
 using WpfLightToolkit.Interfaces;
 using WpfLightToolkit.Helpers;
 using System.ComponentModel;
+using System.Windows.Media;
 
 namespace WpfLightToolkit.Controls
 {
@@ -17,12 +18,26 @@ namespace WpfLightToolkit.Controls
         public static readonly DependencyProperty TitleProperty = DependencyProperty.Register("Title", typeof(string), typeof(LightPage));
 		public static readonly DependencyProperty BackButtonTitleProperty = DependencyProperty.Register("BackButtonTitle", typeof(string), typeof(LightPage));
 		public static readonly DependencyProperty HasNavigationBarProperty = DependencyProperty.Register("HasNavigationBar", typeof(bool), typeof(LightPage), new PropertyMetadata(true));
-		public static readonly DependencyProperty HasBackButtonProperty = DependencyProperty.Register("HasBackButton", typeof(bool), typeof(LightPage));
+		public static readonly DependencyProperty HasBackButtonProperty = DependencyProperty.Register("HasBackButton", typeof(bool), typeof(LightPage), new PropertyMetadata(true));
 		public static readonly DependencyProperty PrimaryTopBarCommandsProperty = DependencyProperty.Register("PrimaryTopBarCommands", typeof(ObservableCollection<FrameworkElement>), typeof(LightPage));
         public static readonly DependencyProperty SecondaryTopBarCommandsProperty = DependencyProperty.Register("SecondaryTopBarCommands", typeof(ObservableCollection<FrameworkElement>), typeof(LightPage));
         public static readonly DependencyProperty PrimaryBottomBarCommandsProperty = DependencyProperty.Register("PrimaryBottomBarCommands", typeof(ObservableCollection<FrameworkElement>), typeof(LightPage));
         public static readonly DependencyProperty SecondaryBottomBarCommandsProperty = DependencyProperty.Register("SecondaryBottomBarCommands", typeof(ObservableCollection<FrameworkElement>), typeof(LightPage));
         public static readonly DependencyProperty ContentBottomBarProperty = DependencyProperty.Register("ContentBottomBar", typeof(object), typeof(LightPage));
+		public static readonly DependencyProperty TitleBarBackgroundColorProperty = DependencyProperty.Register("TitleBarBackgroundColor", typeof(Brush), typeof(LightPage));
+		public static readonly DependencyProperty TitleBarTextColorProperty = DependencyProperty.Register("TitleBarTextColor", typeof(Brush), typeof(LightPage));
+
+		public Brush TitleBarBackgroundColor
+		{
+			get { return (Brush)GetValue(TitleBarBackgroundColorProperty); }
+			set { SetValue(TitleBarBackgroundColorProperty, value); }
+		}
+
+		public Brush TitleBarTextColor
+		{
+			get { return (Brush)GetValue(TitleBarTextColorProperty); }
+			set { SetValue(TitleBarTextColorProperty, value); }
+		}
 
 		public string Title
 		{
@@ -91,8 +106,8 @@ namespace WpfLightToolkit.Controls
         {
             get
             {
-                if (Application.Current.MainWindow is LightWindow)
-                    return Application.Current.MainWindow as LightWindow;
+                if (Application.Current.MainWindow is LightWindow parentWindow)
+                    return parentWindow;
                 return null;
             }
         }
@@ -110,13 +125,13 @@ namespace WpfLightToolkit.Controls
 
 		private void OnPropertyChanged(object sender, EventArgs arg)
 		{
-			ParentWindow?.SynchronizeToolbarCommands();
+			ParentWindow?.SynchronizeAppBar();
 		}
 
 		private void Commands_CollectionChanged(object sender, System.Collections.Specialized.NotifyCollectionChangedEventArgs e)
-        {
-            ParentWindow?.SynchronizeAppBar();
-        }
+		{
+			ParentWindow?.SynchronizeToolbarCommands();
+		}
         
         protected virtual void Appearing()
         {
@@ -128,6 +143,8 @@ namespace WpfLightToolkit.Controls
 			DependencyPropertyDescriptor.FromProperty(LightPage.HasBackButtonProperty, typeof(LightPage)).AddValueChanged(this, OnPropertyChanged);
 			DependencyPropertyDescriptor.FromProperty(LightPage.HasNavigationBarProperty, typeof(LightPage)).AddValueChanged(this, OnPropertyChanged);
 			DependencyPropertyDescriptor.FromProperty(LightPage.BackButtonTitleProperty, typeof(LightPage)).AddValueChanged(this, OnPropertyChanged);
+			DependencyPropertyDescriptor.FromProperty(LightPage.TitleBarBackgroundColorProperty, typeof(LightPage)).AddValueChanged(this, OnPropertyChanged);
+			DependencyPropertyDescriptor.FromProperty(LightPage.TitleBarTextColorProperty, typeof(LightPage)).AddValueChanged(this, OnPropertyChanged);
 			ParentWindow?.SynchronizeToolbarCommands();
 			ParentWindow?.SynchronizeAppBar();
 		}
@@ -142,6 +159,8 @@ namespace WpfLightToolkit.Controls
 			DependencyPropertyDescriptor.FromProperty(LightPage.HasBackButtonProperty, typeof(LightPage)).RemoveValueChanged(this, OnPropertyChanged);
 			DependencyPropertyDescriptor.FromProperty(LightPage.HasNavigationBarProperty, typeof(LightPage)).RemoveValueChanged(this, OnPropertyChanged);
 			DependencyPropertyDescriptor.FromProperty(LightPage.BackButtonTitleProperty, typeof(LightPage)).RemoveValueChanged(this, OnPropertyChanged);
+			DependencyPropertyDescriptor.FromProperty(LightPage.TitleBarBackgroundColorProperty, typeof(LightPage)).RemoveValueChanged(this, OnPropertyChanged);
+			DependencyPropertyDescriptor.FromProperty(LightPage.TitleBarTextColorProperty, typeof(LightPage)).RemoveValueChanged(this, OnPropertyChanged);
 		}
 
         public override void OnApplyTemplate()

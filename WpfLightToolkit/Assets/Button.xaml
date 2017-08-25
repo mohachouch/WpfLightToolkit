@@ -42,13 +42,13 @@
                 <Setter Property="Background"
                         Value="{DynamicResource SemiTransparentWhiteBrush}" />
             </Trigger>
-            <Trigger Property="IsPressed"
+            <!--<Trigger Property="IsPressed"
                      Value="True">
                 <Setter Property="Foreground" 
                         Value="White" />
                 <Setter Property="Background"
                         Value="{DynamicResource AccentColor}" />
-            </Trigger>
+            </Trigger>-->
         </Style.Triggers>
     </Style>
 
@@ -147,13 +147,13 @@
                 <Setter Property="Background"
                         Value="{DynamicResource SemiTransparentWhiteBrush}" />
             </Trigger>
-            <Trigger Property="IsPressed"
+            <!--<Trigger Property="IsPressed"
                      Value="True">
                 <Setter Property="Foreground" 
                         Value="White" />
                 <Setter Property="Background"
                         Value="{DynamicResource AccentColor}" />
-            </Trigger>
+            </Trigger>-->
         </Style.Triggers>
     </Style>
 
@@ -166,7 +166,4 @@
                 Value="8, 5" />
 
     </Style>
-
-
-
 </ResourceDictionary>

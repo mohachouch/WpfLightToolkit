@@ -987,6 +987,16 @@ namespace WpfLightToolkit.Controls
 		//
 		// Résumé :
 		//     ECC9 
-		RemoveFrom = 60617
+		RemoveFrom = 60617,
+
+		//
+		// Résumé :
+		//     E700
+		GlobalNavigationButton = 59136,
+
+		//
+		// Résumé :
+		//     E0E2
+		ChevronFlipLeftLegacy = 57570
 	}
 }

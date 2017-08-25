@@ -13,6 +13,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 using WpfLightToolkit.Controls;
+using WpfLightToolkit.Demo.Dialog;
 using WpfLightToolkit.Demo.Pages.CarouselPage;
 using WpfLightToolkit.Demo.Pages.ContentPage;
 using WpfLightToolkit.Demo.Pages.MasterDetailPage;
@@ -48,7 +49,14 @@ namespace WpfLightToolkit.Demo
 
 		private void BtnNavigationPageDemo_Clicked(object sender, RoutedEventArgs e)
 		{
-			ParentWindow.StartupPage = new LightNavigationPage(new Page1());
+			var startupPage = new LightNavigationPage(new Page1());
+			LightAppBarButton appBarButton = new LightAppBarButton() { Label = "Home", Icon = new LightSymbolIcon() { Symbol = Symbol.Home } };
+			appBarButton.Click += (x, y) =>
+			{
+				ParentWindow.StartupPage = new RootPage();
+			};
+			startupPage.SecondaryTopBarCommands.Add(appBarButton);
+			ParentWindow.StartupPage = startupPage;
 		}
 
 		private void BtnMasterDetailPageDemo_Clicked(object sender, RoutedEventArgs e)

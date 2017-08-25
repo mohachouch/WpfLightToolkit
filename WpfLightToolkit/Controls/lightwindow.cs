@@ -33,6 +33,20 @@ namespace WpfLightToolkit.Controls
 		public static readonly DependencyProperty CurrentNavigationPageProperty = DependencyProperty.Register("CurrentNavigationPage", typeof(LightNavigationPage), typeof(LightWindow));
 		public static readonly DependencyProperty CurrentMasterDetailPageProperty = DependencyProperty.Register("CurrentMasterDetailPage", typeof(LightMasterDetailPage), typeof(LightWindow));
 		public static readonly DependencyProperty CurrentContentDialogProperty = DependencyProperty.Register("CurrentContentDialog", typeof(LightContentDialog), typeof(LightWindow));
+		public static readonly DependencyProperty NavigationBarBackgroundColorProperty = DependencyProperty.Register("NavigationBarBackgroundColor", typeof(Brush), typeof(LightWindow));
+		public static readonly DependencyProperty NavigationBarTextColorProperty = DependencyProperty.Register("NavigationBarTextColor", typeof(Brush), typeof(LightWindow));
+
+		public Brush NavigationBarBackgroundColor
+		{
+			get { return (Brush)GetValue(NavigationBarBackgroundColorProperty); }
+			private set { SetValue(NavigationBarBackgroundColorProperty, value); }
+		}
+
+		public Brush NavigationBarTextColor
+		{
+			get { return (Brush)GetValue(NavigationBarTextColorProperty); }
+			private set { SetValue(NavigationBarTextColorProperty, value); }
+		}
 
 		public LightContentDialog CurrentContentDialog
 		{
@@ -160,9 +174,31 @@ namespace WpfLightToolkit.Controls
 			HasNavigationBar = childrens.FirstOrDefault()?.GetHasNavigationBar() ?? false;
 			CurrentNavigationPage = childrens.OfType<LightNavigationPage>()?.FirstOrDefault();
 			CurrentMasterDetailPage = childrens.OfType<LightMasterDetailPage>()?.FirstOrDefault();
+			var page = childrens.FirstOrDefault();
+			if(page != null)
+			{
+				NavigationBarBackgroundColor = page.TitleBarBackgroundColor;
+				NavigationBarTextColor = page.TitleBarTextColor;
+			}
+			else
+			{
+				ClearValue(NavigationBarBackgroundColorProperty);
+				ClearValue(NavigationBarTextColorProperty);
+			}
+
 			hamburgerButton.Visibility = CurrentMasterDetailPage != null ? Visibility.Visible : Visibility.Collapsed;
-			HasBackButton = CurrentNavigationPage?.GetHasBackButton() ?? false;
-			BackButtonTitle = CurrentNavigationPage?.GetBackButtonTitle() ?? "";
+			
+			if(CurrentNavigationPage != null)
+			{
+				HasBackButton = CurrentNavigationPage.GetHasBackButton();
+				BackButtonTitle = CurrentNavigationPage.GetBackButtonTitle();
+			
+			}
+			else
+			{
+				HasBackButton = false;
+				BackButtonTitle = "";
+			}
 		}
 
 		public void SynchronizeToolbarCommands()

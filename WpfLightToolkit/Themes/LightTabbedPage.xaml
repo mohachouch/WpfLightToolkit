@@ -2,19 +2,15 @@
                     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
                     xmlns:controls="clr-namespace:WpfLightToolkit.Controls">
 
-    <!--<ResourceDictionary.MergedDictionaries>
-        <ResourceDictionary Source="/WpfLightToolkit;component/Assets/Converters.xaml" />
-        <ResourceDictionary Source="/WpfLightToolkit;component/Assets/TextBlock.xaml" />
-        <ResourceDictionary Source="/WpfLightToolkit;component/Assets/Button.xaml" />
-    </ResourceDictionary.MergedDictionaries>-->
-
     <Style TargetType="controls:LightTabbedPage">
         <Setter Property="Background" Value="Transparent" />
         <Setter Property="HorizontalAlignment" Value="Stretch"/>
         <Setter Property="VerticalAlignment" Value="Stretch"/>
         <Setter Property="FocusVisualStyle" Value="{x:Null}"/>
-        <Setter Property="BarBackgroundColor" Value="{DynamicResource AccentColor}"/>
-        <Setter Property="BarTextColor" Value="White"/>
+        <Setter Property="BarBackgroundColor" Value="{DynamicResource DefaultTabbedBarBackgroundColor}"/>
+        <Setter Property="BarTextColor" Value="{DynamicResource DefaultTabbedBarTextColor}"/>
+        <Setter Property="TitleBarBackgroundColor" Value="{DynamicResource DefaultTitleBarBackgroundColor}"/>
+        <Setter Property="TitleBarTextColor" Value="{DynamicResource DefaultTitleBarTextColor}"/>
         <Setter Property="Template">
             <Setter.Value>
                 <ControlTemplate TargetType="controls:LightTabbedPage">
@@ -75,7 +71,7 @@
                                                 <Style TargetType="{x:Type Border}">
                                                     <Setter Property="Opacity" Value="0.6"/>
                                                     <Style.Triggers>
-                                                        <DataTrigger Binding="{Binding RelativeSource={RelativeSource  Mode=FindAncestor, AncestorType={x:Type ListBoxItem}},  Path=IsSelected}" Value="True">
+                                                        <DataTrigger Binding="{Binding RelativeSource={RelativeSource Mode=FindAncestor, AncestorType={x:Type ListBoxItem}},  Path=IsSelected}" Value="True">
                                                             <Setter Property="Opacity" Value="1"/>
                                                         </DataTrigger>
                                                     </Style.Triggers>

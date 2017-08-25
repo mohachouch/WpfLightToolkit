@@ -7,8 +7,6 @@
     </ResourceDictionary.MergedDictionaries>
 
     <Style TargetType="controls:LightAppBarButton" >
-        <Setter Property="Foreground"
-                Value="White" />
         <Setter Property="Width"
                 Value="72" />
         <Setter Property="Padding"
@@ -38,13 +36,13 @@
                 <Setter Property="Background"
                         Value="{DynamicResource SemiTransparentWhiteBrush}" />
             </Trigger>
-            <Trigger Property="IsPressed"
+            <!--<Trigger Property="IsPressed"
                      Value="True">
                 <Setter Property="Foreground" 
                         Value="White" />
                 <Setter Property="Background"
                         Value="{DynamicResource AccentColor}" />
-            </Trigger>
+            </Trigger>-->
         </Style.Triggers>
         
     </Style>
