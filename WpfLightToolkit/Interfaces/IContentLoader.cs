@@ -10,8 +10,8 @@ namespace WpfLightToolkit.Interfaces
 {
     public interface IContentLoader
     {
-        Task<object> LoadContentAsync(FrameworkElement parent, object page, CancellationToken cancellationToken);
+        Task<object> LoadContentAsync(FrameworkElement parent, object oldContent, object newContent, CancellationToken cancellationToken);
 
-        void SizeContentChanged(FrameworkElement parent, object page);
-    }
+        void OnSizeContentChanged(FrameworkElement parent, object content);
+	}
 }

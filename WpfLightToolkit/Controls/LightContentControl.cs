@@ -39,7 +39,7 @@ namespace WpfLightToolkit.Controls
 
         private void LightContentControl_SizeChanged(object sender, SizeChangedEventArgs e)
         {
-            this.ContentLoader.SizeContentChanged(this, Source);
+            this.ContentLoader.OnSizeContentChanged(this, Source);
         }
 
         private static void OnContentLoaderChanged(DependencyObject o, DependencyPropertyChangedEventArgs e)
@@ -58,12 +58,12 @@ namespace WpfLightToolkit.Controls
         private void OnSourceChanged(object oldValue, object newValue)
         {
             if (newValue != null && newValue.Equals(oldValue)) return;
-            
-            var localTokenSource = new CancellationTokenSource();
+			
+			var localTokenSource = new CancellationTokenSource();
             this.tokenSource = localTokenSource;
-
+			
             var scheduler = TaskScheduler.FromCurrentSynchronizationContext();
-            var task = this.ContentLoader.LoadContentAsync(this, newValue, this.tokenSource.Token);
+            var task = this.ContentLoader.LoadContentAsync(this, oldValue, newValue, this.tokenSource.Token);
 
             task.ContinueWith(t =>
             {

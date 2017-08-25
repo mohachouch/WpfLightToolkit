@@ -11,31 +11,26 @@ namespace WpfLightToolkit.Loader
 {
     public class DefaultContentLoader : IContentLoader
     {
-        public Task<object> LoadContentAsync(FrameworkElement parent, object page, CancellationToken cancellationToken)
+        public Task<object> LoadContentAsync(FrameworkElement parent, object oldContent, object newContent, CancellationToken cancellationToken)
         {
             if (!Application.Current.Dispatcher.CheckAccess())
                 throw new InvalidOperationException("UIThreadRequired");
             
             var scheduler = TaskScheduler.FromCurrentSynchronizationContext();
-            return Task.Factory.StartNew(() => LoadContent(page), cancellationToken, TaskCreationOptions.None, scheduler);
+            return Task.Factory.StartNew(() => LoadContent(newContent), cancellationToken, TaskCreationOptions.None, scheduler);
         }
 
-        public void SizeContentChanged(FrameworkElement parent, object page)
+        protected virtual object LoadContent(object content)
         {
+            if (content is FrameworkElement)
+                return content;
 
-        }
+            if (content is Uri)
+                return Application.LoadComponent(content as Uri);
 
-        protected virtual object LoadContent(object page)
-        {
-            if (page is FrameworkElement)
-                return page;
-
-            if (page is Uri)
-                return Application.LoadComponent(page as Uri);
-
-            if (page is string)
+            if (content is string)
             {
-                if (Uri.TryCreate(page as string, UriKind.RelativeOrAbsolute, out Uri uri))
+                if (Uri.TryCreate(content as string, UriKind.RelativeOrAbsolute, out Uri uri))
                 {
                     return Application.LoadComponent(uri);
                 }
@@ -43,5 +38,10 @@ namespace WpfLightToolkit.Loader
 
             return null;
         }
-    }
+		
+		public void OnSizeContentChanged(FrameworkElement parent, object page)
+		{
+
+		}
+	}
 }
