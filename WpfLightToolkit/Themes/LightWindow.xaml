@@ -80,7 +80,7 @@
                             <controls:LightContentControl x:Name="PART_ContentControl" Grid.Row="2" 
                                       ContentLoader="{TemplateBinding ContentLoader}" Source="{TemplateBinding StartupPage}" />
 
-                            <controls:LightTransitioningContentControl x:Name="PART_ModalContentControl"  Grid.Row="1" Background="White"
+                            <controls:LightTransitioningContentControl x:Name="PART_ModalContentControl"  Grid.Row="1"
                                                                        Grid.RowSpan="3" Transition="Up"
                                       ContentLoader="{TemplateBinding ContentLoader}" Source="{TemplateBinding CurrentModalPage}" />
 

@@ -78,7 +78,7 @@ namespace WpfLightToolkit.Demo
 				Navigation.PopModal();
 			};
 
-			Navigation.PushModal(new UserControl() { Background = Brushes.Transparent, Content = button});
+			Navigation.PushModal(new UserControl() { Background = Brushes.Gray, Content = button});
 		}
 	}
 }
