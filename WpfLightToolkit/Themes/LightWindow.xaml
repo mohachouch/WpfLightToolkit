@@ -80,8 +80,8 @@
                             <controls:LightContentControl x:Name="PART_ContentControl" Grid.Row="2" 
                                       ContentLoader="{TemplateBinding ContentLoader}" Source="{TemplateBinding StartupPage}" />
 
-                            <controls:LightTransitioningContentControl x:Name="PART_ModalContentControl"  Grid.Row="1"
-                                                                       Grid.RowSpan="3" Transition="Up"
+                            <controls:LightTransitioningContentControl x:Name="PART_ModalContentControl"  Grid.Row="1" Background="White"
+                                                                       Grid.RowSpan="3" Transition="Normal"
                                       ContentLoader="{TemplateBinding ContentLoader}" Source="{TemplateBinding CurrentModalPage}" />
 
                             <Grid x:Name="PART_Popup" Grid.Row="1" Grid.RowSpan="3" Background="#99000000" Panel.ZIndex="3">
