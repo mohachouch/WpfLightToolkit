@@ -187,5 +187,11 @@ namespace WpfLightToolkit.Controls
         {
 			ParentWindow?.PushModal(page, animated);
         }
+
+
+		public virtual void OnBackButtonPressed()
+		{
+			Pop();
+		}
     }
 }

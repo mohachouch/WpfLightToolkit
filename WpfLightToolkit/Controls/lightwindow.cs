@@ -156,7 +156,7 @@ namespace WpfLightToolkit.Controls
 		{
 			if (CurrentNavigationPage != null && CurrentNavigationPage.StackDepth > 1)
 			{
-				CurrentNavigationPage.Pop();
+				CurrentNavigationPage.OnBackButtonPressed();
 			}
 		}
 
