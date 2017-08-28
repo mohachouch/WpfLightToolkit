@@ -33,7 +33,15 @@
                             <Grid x:Name="PART_CommandsBar"  Grid.Row="0" Height="35" VerticalAlignment="Center" 
                                   Background="{DynamicResource CommandBarBackgroundColor}"
                                   >
-                                <TextBlock Margin="15,0,0,0" Text="{TemplateBinding Title}" HorizontalAlignment="Left" VerticalAlignment="Center" 
+                                <Button x:Name="PART_Previous_Modal" Focusable="False" Style="{StaticResource LightOtherWindowButtonStyle}"
+                                        WindowChrome.IsHitTestVisibleInChrome="True" HorizontalAlignment="Left"
+                                         Visibility="{Binding HasBackButtonModal,
+                                                    FallbackValue=Collapsed, TargetNullValue=Collapsed, Converter={StaticResource BoolToVis},
+                                                    RelativeSource={RelativeSource AncestorType={x:Type controls:LightWindow}}}">
+                                    <controls:LightSymbolIcon Symbol="ChevronFlipLeftLegacy" FontSize="18"  />
+                                </Button>
+
+                                <TextBlock x:Name="PART_System_Title" Margin="15,0,0,0" Text="{TemplateBinding Title}" HorizontalAlignment="Center" VerticalAlignment="Center" 
                                            FontSize="14" Opacity="1" Foreground="{DynamicResource CommandBarTextColor}"/>
 
                                 <controls:LightWindowButtonCommands x:Name="PART_WindowButtonCommands"
@@ -109,6 +117,7 @@
                         </Trigger>
                         <Trigger Property="CurrentModalPage" Value="{x:Null}">
                             <Setter TargetName="PART_ModalContentControl" Property="Visibility" Value="Hidden" />
+                            <Setter TargetName="PART_System_Title" Property="HorizontalAlignment" Value="Left" />
                         </Trigger>
                     </ControlTemplate.Triggers>
                 </ControlTemplate>

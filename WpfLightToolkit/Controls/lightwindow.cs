@@ -21,6 +21,7 @@ namespace WpfLightToolkit.Controls
 		LightAppBar topAppBar;
 		LightAppBar bottomAppBar;
 		Button previousButton;
+		Button previousModalButton;
 		Button hamburgerButton;
 
 		public static readonly DependencyProperty StartupPageProperty = DependencyProperty.Register("StartupPage", typeof(object), typeof(LightWindow));
@@ -28,6 +29,7 @@ namespace WpfLightToolkit.Controls
 		public static readonly DependencyProperty ContentLoaderProperty = DependencyProperty.Register("ContentLoader", typeof(IContentLoader), typeof(LightWindow), new PropertyMetadata(new DefaultContentLoader(), OnContentLoaderChanged));
 		public static readonly DependencyProperty CurrentTitleProperty = DependencyProperty.Register("CurrentTitle", typeof(string), typeof(LightWindow));
 		public static readonly DependencyProperty HasBackButtonProperty = DependencyProperty.Register("HasBackButton", typeof(bool), typeof(LightWindow));
+		public static readonly DependencyProperty HasBackButtonModalProperty = DependencyProperty.Register("HasBackButtonModal", typeof(bool), typeof(LightWindow));
 		public static readonly DependencyProperty HasNavigationBarProperty = DependencyProperty.Register("HasNavigationBar", typeof(bool), typeof(LightWindow));
 		public static readonly DependencyProperty BackButtonTitleProperty = DependencyProperty.Register("BackButtonTitle", typeof(string), typeof(LightWindow));
 		public static readonly DependencyProperty CurrentNavigationPageProperty = DependencyProperty.Register("CurrentNavigationPage", typeof(LightNavigationPage), typeof(LightWindow));
@@ -84,6 +86,12 @@ namespace WpfLightToolkit.Controls
 			private set { SetValue(HasBackButtonProperty, value); }
 		}
 
+		public bool HasBackButtonModal
+		{
+			get { return (bool)GetValue(HasBackButtonModalProperty); }
+			private set { SetValue(HasBackButtonModalProperty, value); }
+		}
+
 		public bool HasNavigationBar
 		{
 			get { return (bool)GetValue(HasNavigationBarProperty); }
@@ -132,16 +140,25 @@ namespace WpfLightToolkit.Controls
 			topAppBar = Template.FindName("PART_TopAppBar", this) as LightAppBar;
 			bottomAppBar = Template.FindName("PART_BottomAppBar", this) as LightAppBar;
 			previousButton = Template.FindName("PART_Previous", this) as Button;
-			hamburgerButton = Template.FindName("PART_Hamburger", this) as Button;
 			if (previousButton != null)
 			{
 				previousButton.Click += PreviousButton_Click;
+			}
+			previousModalButton = Template.FindName("PART_Previous_Modal", this) as Button;
+			if (previousButton != null)
+			{
+				previousModalButton.Click += PreviousModalButton_Click;
 			}
 			hamburgerButton = Template.FindName("PART_Hamburger", this) as Button;
 			if (hamburgerButton != null)
 			{
 				hamburgerButton.Click += HamburgerButton_Click;
 			}
+		}
+
+		private void PreviousModalButton_Click(object sender, RoutedEventArgs e)
+		{
+			PopModal();
 		}
 
 		private void HamburgerButton_Click(object sender, RoutedEventArgs e)
@@ -236,6 +253,7 @@ namespace WpfLightToolkit.Controls
 		{
 			InternalChildren.Add(page);
 			this.CurrentModalPage = InternalChildren.Last();
+			this.HasBackButtonModal = true;
 		}
 
 		public object PopModal()
@@ -258,7 +276,9 @@ namespace WpfLightToolkit.Controls
 				}*/
 				CurrentModalPage = InternalChildren.LastOrDefault();
 			}
-			
+
+			this.HasBackButtonModal = InternalChildren.Count > 1;
+
 			return modal;
 		}
 
