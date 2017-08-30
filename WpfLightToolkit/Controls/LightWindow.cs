@@ -158,7 +158,7 @@ namespace WpfLightToolkit.Controls
 
 		private void PreviousModalButton_Click(object sender, RoutedEventArgs e)
 		{
-			PopModal();
+			OnBackSystemButtonPressed();
 		}
 
 		private void HamburgerButton_Click(object sender, RoutedEventArgs e)
@@ -282,6 +282,10 @@ namespace WpfLightToolkit.Controls
 			return modal;
 		}
 
+		public virtual void OnBackSystemButtonPressed()
+		{
+			PopModal();
+		}
 	}
 }
 
