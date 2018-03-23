@@ -15,6 +15,6 @@
     <tags>WPF XAML</tags>
   </metadata>
   <files>
-    <file src="WpfLightToolkit\bin\Release\WpfLightToolkit.dll" target="lib\net45" />
+    <file src="..\Sources\WpfLightToolkit\bin\Release\WpfLightToolkit.dll" target="lib\net45" />
   </files>    
 </package>
