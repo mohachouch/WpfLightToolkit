@@ -13,6 +13,7 @@ namespace WpfLightToolkit.Controls
 {
 	public class LightMasterDetailPage : LightPage
 	{
+		LightContentControl lightMasterContentControl;
 		LightContentControl lightDetailContentControl;
 
 		public static readonly DependencyProperty MasterPageProperty = DependencyProperty.Register("MasterPage", typeof(object), typeof(LightMasterDetailPage));
@@ -52,6 +53,7 @@ namespace WpfLightToolkit.Controls
 		public override void OnApplyTemplate()
 		{
 			base.OnApplyTemplate();
+			lightMasterContentControl = Template.FindName("PART_Master", this) as LightContentControl;
 			lightDetailContentControl = Template.FindName("PART_Detail_Content", this) as LightContentControl;
 		}
 
@@ -80,6 +82,78 @@ namespace WpfLightToolkit.Controls
 				return page.GetTitleBarTextColor();
 			}
 			return this.TitleBarTextColor;
+		}
+
+		public override IEnumerable<FrameworkElement> GetPrimaryTopBarCommands()
+		{
+			List<FrameworkElement> frameworkElements = new List<FrameworkElement>();
+			frameworkElements.AddRange(this.PrimaryTopBarCommands);
+			
+			if (lightMasterContentControl != null && lightMasterContentControl.Content is LightPage masterPage)
+			{
+				frameworkElements.AddRange(masterPage.GetPrimaryTopBarCommands());
+			}
+
+			if (lightDetailContentControl != null && lightDetailContentControl.Content is LightPage page)
+			{
+				frameworkElements.AddRange(page.GetPrimaryTopBarCommands());
+			}
+
+			return frameworkElements;
+		}
+
+		public override IEnumerable<FrameworkElement> GetSecondaryTopBarCommands()
+		{
+			List<FrameworkElement> frameworkElements = new List<FrameworkElement>();
+			frameworkElements.AddRange(this.SecondaryTopBarCommands);
+
+			if (lightMasterContentControl != null && lightMasterContentControl.Content is LightPage masterPage)
+			{
+				frameworkElements.AddRange(masterPage.GetSecondaryTopBarCommands());
+			}
+
+			if (lightDetailContentControl != null && lightDetailContentControl.Content is LightPage page)
+			{
+				frameworkElements.AddRange(page.GetSecondaryTopBarCommands());
+			}
+
+			return frameworkElements;
+		}
+
+		public override IEnumerable<FrameworkElement> GetPrimaryBottomBarCommands()
+		{
+			List<FrameworkElement> frameworkElements = new List<FrameworkElement>();
+			frameworkElements.AddRange(this.PrimaryBottomBarCommands);
+
+			if (lightMasterContentControl != null && lightMasterContentControl.Content is LightPage masterPage)
+			{
+				frameworkElements.AddRange(masterPage.GetPrimaryBottomBarCommands());
+			}
+
+			if (lightDetailContentControl != null && lightDetailContentControl.Content is LightPage page)
+			{
+				frameworkElements.AddRange(page.GetPrimaryBottomBarCommands());
+			}
+
+			return frameworkElements;
+		}
+
+		public override IEnumerable<FrameworkElement> GetSecondaryBottomBarCommands()
+		{
+			List<FrameworkElement> frameworkElements = new List<FrameworkElement>();
+			frameworkElements.AddRange(this.SecondaryBottomBarCommands);
+
+			if (lightMasterContentControl != null && lightMasterContentControl.Content is LightPage masterPage)
+			{
+				frameworkElements.AddRange(masterPage.GetSecondaryBottomBarCommands());
+			}
+
+			if (lightDetailContentControl != null && lightDetailContentControl.Content is LightPage page)
+			{
+				frameworkElements.AddRange(page.GetSecondaryBottomBarCommands());
+			}
+
+			return frameworkElements;
 		}
 	}
 }

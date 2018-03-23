@@ -187,5 +187,25 @@ namespace WpfLightToolkit.Controls
 		{
 			return this.TitleBarTextColor;
 		}
+
+		public virtual IEnumerable<FrameworkElement> GetPrimaryTopBarCommands()
+		{
+			return this.PrimaryTopBarCommands;
+		}
+
+		public virtual IEnumerable<FrameworkElement> GetSecondaryTopBarCommands()
+		{
+			return this.SecondaryTopBarCommands;
+		}
+
+		public virtual IEnumerable<FrameworkElement> GetPrimaryBottomBarCommands()
+		{
+			return this.PrimaryBottomBarCommands;
+		}
+
+		public virtual IEnumerable<FrameworkElement> GetSecondaryBottomBarCommands()
+		{
+			return this.SecondaryBottomBarCommands;
+		}
 	}  
 }

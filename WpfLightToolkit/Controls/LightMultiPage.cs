@@ -94,5 +94,57 @@ namespace WpfLightToolkit.Controls
 			}
 			return false;
 		}
+
+		public override IEnumerable<FrameworkElement> GetPrimaryTopBarCommands()
+		{
+			List<FrameworkElement> frameworkElements = new List<FrameworkElement>();
+			frameworkElements.AddRange(this.PrimaryTopBarCommands);
+
+			if (LightContentControl != null && LightContentControl.Content is LightPage page)
+			{
+				frameworkElements.AddRange(page.GetPrimaryTopBarCommands());
+			}
+
+			return frameworkElements;
+		}
+
+		public override IEnumerable<FrameworkElement> GetSecondaryTopBarCommands()
+		{
+			List<FrameworkElement> frameworkElements = new List<FrameworkElement>();
+			frameworkElements.AddRange(this.SecondaryTopBarCommands);
+
+			if (LightContentControl != null && LightContentControl.Content is LightPage page)
+			{
+				frameworkElements.AddRange(page.GetSecondaryTopBarCommands());
+			}
+
+			return frameworkElements;
+		}
+
+		public override IEnumerable<FrameworkElement> GetPrimaryBottomBarCommands()
+		{
+			List<FrameworkElement> frameworkElements = new List<FrameworkElement>();
+			frameworkElements.AddRange(this.PrimaryBottomBarCommands);
+
+			if (LightContentControl != null && LightContentControl.Content is LightPage page)
+			{
+				frameworkElements.AddRange(page.GetPrimaryBottomBarCommands());
+			}
+
+			return frameworkElements;
+		}
+
+		public override IEnumerable<FrameworkElement> GetSecondaryBottomBarCommands()
+		{
+			List<FrameworkElement> frameworkElements = new List<FrameworkElement>();
+			frameworkElements.AddRange(this.SecondaryBottomBarCommands);
+
+			if (LightContentControl != null && LightContentControl.Content is LightPage page)
+			{
+				frameworkElements.AddRange(page.GetSecondaryBottomBarCommands());
+			}
+
+			return frameworkElements;
+		}
 	}
 }

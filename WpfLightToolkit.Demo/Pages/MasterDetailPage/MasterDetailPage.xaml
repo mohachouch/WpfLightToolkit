@@ -16,12 +16,42 @@
 
     <LightMasterDetailPage.MasterPage>
         <LightContentPage Background="{DynamicResource AccentColor}">
+            <LightContentPage.PrimaryTopBarCommands>
+                <LightAppBarButton Label="Master" >
+                    <LightAppBarButton.Icon>
+                        <LightSymbolIcon Symbol="Page" />
+                    </LightAppBarButton.Icon>
+                </LightAppBarButton>
+            </LightContentPage.PrimaryTopBarCommands>
+
+            <LightContentPage.SecondaryTopBarCommands>
+                <LightAppBarButton Label="TOP" >
+                    <LightAppBarButton.Icon>
+                        <LightSymbolIcon Symbol="Page" />
+                    </LightAppBarButton.Icon>
+                </LightAppBarButton>
+            </LightContentPage.SecondaryTopBarCommands>
+
             <TextBlock Text="Master" Foreground="White" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="30" />
         </LightContentPage>
     </LightMasterDetailPage.MasterPage>
 
     <LightMasterDetailPage.DetailPage>
         <LightContentPage Title="Detail Title">
+            <LightContentPage.PrimaryTopBarCommands>
+                <LightAppBarButton Label="Detail" >
+                    <LightAppBarButton.Icon>
+                        <LightSymbolIcon Symbol="Page" />
+                    </LightAppBarButton.Icon>
+                </LightAppBarButton>
+            </LightContentPage.PrimaryTopBarCommands>
+            <LightContentPage.SecondaryBottomBarCommands>
+                <LightAppBarButton Label="Bottom" >
+                    <LightAppBarButton.Icon>
+                        <LightSymbolIcon Symbol="Page" />
+                    </LightAppBarButton.Icon>
+                </LightAppBarButton>
+            </LightContentPage.SecondaryBottomBarCommands>
             <TextBlock Text="Detail" Foreground="Black" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="30" />
         </LightContentPage>
     </LightMasterDetailPage.DetailPage>

@@ -41,11 +41,27 @@
     
     <!-- Page 1 -->
     <LightContentPage Title="Page 1" >
+        <LightContentPage.PrimaryTopBarCommands>
+            <LightAppBarButton Label="Page 1" >
+                <LightAppBarButton.Icon>
+                    <LightSymbolIcon Symbol="Page" />
+                </LightAppBarButton.Icon>
+            </LightAppBarButton>
+        </LightContentPage.PrimaryTopBarCommands>
+
         <Grid Height="50" Width="50" Background="Blue"/>
     </LightContentPage>
    
     <!-- Page 2 -->
     <LightContentPage Title="Page 2" >
+        <LightContentPage.PrimaryTopBarCommands>
+            <LightAppBarButton Label="Page 2" >
+                <LightAppBarButton.Icon>
+                    <LightSymbolIcon Symbol="Page" />
+                </LightAppBarButton.Icon>
+            </LightAppBarButton>
+        </LightContentPage.PrimaryTopBarCommands>
+
         <Grid Height="50" Width="50" Background="Red"/>
     </LightContentPage>
 </LightTabbedPage>

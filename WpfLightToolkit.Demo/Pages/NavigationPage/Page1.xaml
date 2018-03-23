@@ -6,6 +6,15 @@
              mc:Ignorable="d" 
              Title="Page 1"
              d:DesignHeight="300" d:DesignWidth="300">
+    <LightContentPage.PrimaryTopBarCommands>
+        <LightAppBarButton Label="Page 1" >
+            <LightAppBarButton.Icon>
+                <LightSymbolIcon Symbol="Page" />
+            </LightAppBarButton.Icon>
+        </LightAppBarButton>
+    </LightContentPage.PrimaryTopBarCommands>
+
+
     <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center">
         <TextBlock Text="Page 1" Foreground="Black" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="30"  Margin="0,0,0,30"/>
         <Button Content="Go to Page 2" Width="200" Height="30" Click="GoToPage2_Click"  Margin="0,0,0,30"/>

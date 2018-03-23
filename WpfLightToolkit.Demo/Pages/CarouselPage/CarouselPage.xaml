@@ -30,12 +30,52 @@
 
     <LightCarouselPage.ItemsSource>
         <LightContentPage Title="Page 1" >
+            <LightContentPage.PrimaryTopBarCommands>
+                <LightAppBarButton Label="Page 1" >
+                    <LightAppBarButton.Icon>
+                        <LightSymbolIcon Symbol="Page" />
+                    </LightAppBarButton.Icon>
+                </LightAppBarButton>
+            </LightContentPage.PrimaryTopBarCommands>
+            
             <Grid Height="50" Width="50" Background="Green"/>
         </LightContentPage>
         <LightContentPage Title="Page 2" >
+            <LightContentPage.PrimaryTopBarCommands>
+                <LightAppBarButton Label="Page 2" >
+                    <LightAppBarButton.Icon>
+                        <LightSymbolIcon Symbol="Page" />
+                    </LightAppBarButton.Icon>
+                </LightAppBarButton>
+            </LightContentPage.PrimaryTopBarCommands>
+
+            <LightContentPage.SecondaryTopBarCommands>
+                <LightAppBarButton Label="TOP" >
+                    <LightAppBarButton.Icon>
+                        <LightSymbolIcon Symbol="Page" />
+                    </LightAppBarButton.Icon>
+                </LightAppBarButton>
+            </LightContentPage.SecondaryTopBarCommands>
+
             <Grid Height="50" Width="50" Background="Blue"/>
         </LightContentPage>
         <LightContentPage Title="Page 3" >
+            <LightContentPage.PrimaryTopBarCommands>
+                <LightAppBarButton Label="Page 3" >
+                    <LightAppBarButton.Icon>
+                        <LightSymbolIcon Symbol="Page" />
+                    </LightAppBarButton.Icon>
+                </LightAppBarButton>
+            </LightContentPage.PrimaryTopBarCommands>
+
+            <LightContentPage.SecondaryBottomBarCommands>
+                <LightAppBarButton Label="Bottom" >
+                    <LightAppBarButton.Icon>
+                        <LightSymbolIcon Symbol="Page" />
+                    </LightAppBarButton.Icon>
+                </LightAppBarButton>
+            </LightContentPage.SecondaryBottomBarCommands>
+
             <Grid Height="50" Width="50" Background="Red"/>
         </LightContentPage>
     </LightCarouselPage.ItemsSource>

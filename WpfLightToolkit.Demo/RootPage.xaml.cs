@@ -50,6 +50,10 @@ namespace WpfLightToolkit.Demo
 		private void BtnNavigationPageDemo_Clicked(object sender, RoutedEventArgs e)
 		{
 			var startupPage = new LightNavigationPage(new Page1());
+
+			LightAppBarButton appBarNav = new LightAppBarButton() { Label = "Navigation", Icon = new LightSymbolIcon() { Symbol = Symbol.GlobalNavigationButton } };
+			startupPage.PrimaryTopBarCommands.Add(appBarNav);
+
 			LightAppBarButton appBarButton = new LightAppBarButton() { Label = "Home", Icon = new LightSymbolIcon() { Symbol = Symbol.Home } };
 			appBarButton.Click += (x, y) =>
 			{

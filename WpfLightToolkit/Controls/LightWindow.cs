@@ -221,10 +221,14 @@ namespace WpfLightToolkit.Controls
 		public void SynchronizeToolbarCommands()
 		{
 			IEnumerable<LightPage> childrens = this.FindVisualChildren<LightPage>();
-			topAppBar.PrimaryCommands = childrens.SelectMany(x => x.PrimaryTopBarCommands).OrderBy(ti => ti.GetValue(FrameworkElementAttached.PriorityProperty));
-			topAppBar.SecondaryCommands = childrens.SelectMany(x => x.SecondaryTopBarCommands).OrderBy(ti => ti.GetValue(FrameworkElementAttached.PriorityProperty));
-			bottomAppBar.PrimaryCommands = childrens.SelectMany(x => x.PrimaryBottomBarCommands).OrderBy(ti => ti.GetValue(FrameworkElementAttached.PriorityProperty));
-			bottomAppBar.SecondaryCommands = childrens.SelectMany(x => x.SecondaryBottomBarCommands).OrderBy(ti => ti.GetValue(FrameworkElementAttached.PriorityProperty));
+
+			var page = childrens.FirstOrDefault();
+			if (page == null) return;
+
+			topAppBar.PrimaryCommands = page.GetPrimaryTopBarCommands().OrderBy(ti => ti.GetValue(FrameworkElementAttached.PriorityProperty));
+			topAppBar.SecondaryCommands = page.GetSecondaryTopBarCommands().OrderBy(ti => ti.GetValue(FrameworkElementAttached.PriorityProperty));
+			bottomAppBar.PrimaryCommands = page.GetPrimaryBottomBarCommands().OrderBy(ti => ti.GetValue(FrameworkElementAttached.PriorityProperty));
+			bottomAppBar.SecondaryCommands = page.GetSecondaryBottomBarCommands().OrderBy(ti => ti.GetValue(FrameworkElementAttached.PriorityProperty));
 			bottomAppBar.Content = childrens.LastOrDefault(x => x.ContentBottomBar != null)?.ContentBottomBar;
 
 			topAppBar.Reset();
