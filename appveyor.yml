@@ -13,7 +13,7 @@
     assembly_file_version: '1.0.2.{build}'
     assembly_informational_version: '1.0.2.{build}'
   build:
-    project: WpfLightToolkit.sln
+    project: Sources\WpfLightToolkit.sln
     verbosity: minimal
   before_build: 
   - ps: >- 
@@ -27,7 +27,7 @@
       }
       
   after_build:
-  - ps: nuget pack WpfLightToolkit.nuspec -Version $env:APPVEYOR_BUILD_VERSION
+  - ps: nuget pack NuGet\WpfLightToolkit.nuspec -Version $env:APPVEYOR_BUILD_VERSION
   artifacts:
   - path: '**\WpfLightToolkit.*.nupkg'
 
