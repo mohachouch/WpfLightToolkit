@@ -82,7 +82,17 @@ namespace WpfLightToolkit.Demo
 				Navigation.PopModal();
 			};
 
-			Navigation.PushModal(new UserControl() { Background = Brushes.Gray, Content = button});
+			var lightPage = new LightContentPage() { Background = Brushes.Transparent, Content = button };
+			LightAppBarButton appBarNav = new LightAppBarButton() { Label = "Navigation", Icon = new LightSymbolIcon() { Symbol = Symbol.GlobalNavigationButton } };
+
+			appBarNav.Click += (x, y) =>
+			{
+				lightPage.Background = Brushes.White;
+			};
+
+			lightPage.PrimaryTopBarCommands.Add(appBarNav);
+
+			Navigation.PushModal(lightPage);
 		}
 	}
 }

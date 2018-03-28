@@ -9,9 +9,9 @@
   assembly_info:
     patch: true
     file: '**\AssemblyInfo.*'
-    assembly_version: '1.0.2.{build}'
-    assembly_file_version: '1.0.2.{build}'
-    assembly_informational_version: '1.0.2.{build}'
+    assembly_version: '1.0.3.{build}'
+    assembly_file_version: '1.0.3.{build}'
+    assembly_informational_version: '1.0.3.{build}'
   build:
     project: Sources\WpfLightToolkit.sln
     verbosity: minimal
@@ -21,7 +21,7 @@
       { 
           Update-AppveyorBuild -Version "$env:APPVEYOR_REPO_TAG_NAME"
       }else{
-          $version = "1.0.2-ci";
+          $version = "1.0.3-ci";
           $build = [int]::Parse($env:appveyor_build_number).ToString().PadLeft(4, '0');
           Update-AppveyorBuild -Version "$version$build";
       }
